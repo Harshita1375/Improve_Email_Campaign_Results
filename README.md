@@ -33,6 +33,7 @@ Logs emails where the internal link was clicked by the user.
 |-------------|------------------------------------------|
 | `email_id`  | ID of the email whose link was clicked   |
 
+---
 
 ## Model Selection
 
@@ -61,38 +62,41 @@ The following table summarizes the Click-Through Rate (CTR) improvement achieved
 
 2. **Class Distribution:** `y_test` - 
 
-0 - 55
+0 - 55<br>
 1 - 45
 
 The test set has a fairly balanced class distribution, which helps avoid biased accuracy.
 
 3. **Sample Predicted Probabilities**
 
-[[0.8839 0.1160]
- [0.9033 0.0966]
- [0.9811 0.0188]
- [0.7224 0.2775]
- [0.8557 0.1442]
- [0.0137 0.9862]
- [0.0029 0.9970]
- [0.2867 0.7132]
- [0.2407 0.7592]
- [0.6353 0.3646]]
+```
+    [[0.8839, 0.1160],
+    [0.9033, 0.0966],
+    [0.9811, 0.0188],
+    [0.7224, 0.2775],
+    [0.8557, 0.1442],
+    [0.0137, 0.9862],
+    [0.0029, 0.9970],
+    [0.2867, 0.7132],
+    [0.2407, 0.7592],
+    [0.6353, 0.3646]]
+
+```
 
 The predicted probabilities are well-distributed and not overly confident in one class, suggesting the model is making informed predictions.
 
-The above combinations of a high cross-validated accuracy (0.866), a balanced test set, and reasonable probability outputs confirms that the model is not overfitting and generalizes well across unseen data.
-
+#### The above combinations of a high cross-validated accuracy (0.866), a balanced test set, and reasonable probability outputs confirms that the model is not overfitting and generalizes well across unseen data.
+---
 ## Question and answer
 
 ### 1. What percentage of users opened the email and what percentage clicked on the link within the email?
 
-![Percentage](Percentage.jpg)
+![image](https://github.com/user-attachments/assets/4f79b3db-7c79-4e10-a142-e96971d2f33d)
 
-Thus,
-Percentage of users who opened the email: `10.41%`
-Percentage of users who clicked the link: `2.10%`
-
+**Thus,**
+- Percentage of users who opened the email: `10.41%`
+- Percentage of users who clicked the link: `2.10%`
+---
 ### 2. The VP of marketing thinks that it is stupid to send emails in a random way. Based on all the information you have about the emails that were sent, can you build a model to optimize in future how to send emails to maximize the probability of users clicking on the link inside the email? 
 
 The VP of Marketing raised a valid concern — sending emails randomly is inefficient and fails to capitalize on user behavior data. To address this, I built a `predictive model` that uses past campaign data to `optimize email targeting` and `maximize Click-Through Rate (CTR)`.
@@ -113,6 +117,7 @@ The VP of Marketing raised a valid concern — sending emails randomly is ineffi
 
 **Improvement:** The difference between the simulated and original CTR.
 
+---
 
 ### 3. By how much do you think your model would improve click through rate. How would you test that? 
 
@@ -137,17 +142,15 @@ By implementing the simulate_ctr function, we are able to evaluate how much the 
 We can run this simulation for different models (e.g., Random Forest, XGBoost, SVM) to compare their performance in improving CTR.
 
 **Results**
-Models like XGBoost and Neural Networks significantly outperformed random targeting, improving simulated CTR by `up to 2.82%` compared to the baseline. The best results were achieved using **SVM with metaheuristic optimization (Differential Evolution)**, improving CTR by up to `50%` in a balanced test set.
+Models like XGBoost and Neural Networks significantly outperformed random targeting, improving simulated CTR by `up to 2.82%` compared to the baseline. The best results were achieved using SVM with metaheuristic optimization (Differential Evolution), improving CTR by up to `50%` in a balanced test set.
 
-This helps in assessing the model’s ability to target the most likely users for a click, which is very important for effective email marketing campaign.
-
+#### This helps in assessing the model’s ability to target the most likely users for a click, which is very important for effective email marketing campaign.
+---
 ### 4. Did you find any interesting pattern on how the email campaign performed for different segments of users? Explain. 
 
 #### Insights from Email Campaign Performance by User Segments
 
 Yes, several interesting patterns were discovered when analyzing how the email campaign performed across different user segments. These insights help us understand **which groups are more likely to engage** with email content and can guide future targeting strategies.
-
-
 
 ##### Based on `email_text` (Long vs Short):
 
@@ -195,9 +198,9 @@ Yes, several interesting patterns were discovered when analyzing how the email c
 - **Possible reason**: Differences in user preferences, localization, or cultural factors might be influencing engagement.
 
 ##### Time-based Metrics by Country
-- Median `hour` of interaction: **9 AM** for all countries.
-- Users tend to interact with emails in the **morning**, regardless of their location.
-- Average `user_past_purchases` is slightly higher in **Spain (3.98)** and **France (3.87)** than in **UK (3.81)** and **US (3.89)**, but this doesn’t necessarily translate to higher email interaction.
+- Median `hour` of interaction: `9 AM` for all countries.
+- Users tend to interact with emails in the `morning`, regardless of their location.
+- Average `user_past_purchases` is slightly higher in `Spain (3.98)` and `France (3.87)` than in `UK (3.81)` and `US (3.89)`, but this doesn’t necessarily translate to higher email interaction.
 
 ##### Weekday-wise Email Performance
 
@@ -212,17 +215,17 @@ Yes, several interesting patterns were discovered when analyzing how the email c
 | Saturday  | 5196               | 388               | 99                  | **487**                |
 | Sunday    | 5200               | 445               | 94                  | **539**                |
 
-- **Best performing day**: **Wednesday**, with **highest total engagement (715)**.
-- **Worst performing day**: **Friday**, with only **404 engaged users**.
+- **Best performing day**: **Wednesday**, with `highest total engagement (715)`.
+- **Worst performing day**: **Friday**, with only `404 engaged users`.
 - **Insight**: Sending marketing emails mid-week (especially **Tuesday to Thursday**) could yield better click-through and open rates.
 
 
 ##### Summary of Key Insights
 
-- **Personalized content** and **short emails** perform better across the board.
-- **UK and US** audiences are more responsive than **Spain and France**.
-- **Midweek emails (Tue–Thu)**, especially on **Wednesday**, show higher engagement.
-- **Morning hours (around 9 AM)** are optimal for sending campaigns.
+- Personalized content and short email perform better across the board.
+- UK and US audiences are more responsive than Spain and France.
+- Midweek emails (Tue–Thu), especially on Wednesday, show higher engagement.
+- Morning hours (around 9 AM) are optimal for sending campaigns.
 - Although purchase history is relatively consistent, content and timing appear to drive CTR more than historical purchases.
 
 These insights can guide smarter email targeting strategies, improve CTR, and reduce campaign waste by avoiding less responsive segments or timings.
