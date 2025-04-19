@@ -117,7 +117,7 @@ The VP of Marketing raised a valid concern — sending emails randomly is ineffi
 
 **Improvement:** The difference between the simulated and original CTR.
 
-Conclusion - Through the above CTR table (present under model selection) we can clearly note that SVM DE model has predicted the best result among all the other model. The improved CTR score of DE model is 50% more than the orginal CTR.
+Conclusion - Through the above CTR table (present under Model Performance: CTR Simulation Comparison) we can clearly note that SVM DE model has predicted the best result among all the other model. The improved CTR score of DE model is 50% more than the orginal CTR.
 
 ---
 
