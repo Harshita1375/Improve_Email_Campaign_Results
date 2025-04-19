@@ -37,7 +37,7 @@ Logs emails where the internal link was clicked by the user.
 
 ## Model Selection
 
-To maximize the probability of users clicking on the link inside the email, I have prefered Differential Evolution (SVM) model agains multiple models. The Differential Evolution (SVM) metaheuristics approach combines the power of Support Vector Machines (SVM) with Differential Evolution (DE), an evolutionary optimization algorithm. In this hybrid method, DE is used to automatically optimize the hyperparameters of the SVM, such as the penalty parameter (C), kernel type, and kernel-specific parameters like gamma. This helps in finding the most effective model configuration without manual tuning. The approach is particularly useful for handling complex, high-dimensional, or non-linear datasets, offering improved classification accuracy through global search and optimization.
+To maximize the probability of users clicking on the link inside the email, I have prefered Differential Evolution (SVM) model against multiple models. The Differential Evolution (SVM) is a metaheuristics approach that combines the power of Support Vector Machines (SVM) with Differential Evolution (DE), an evolutionary optimization algorithm. In this hybrid method, DE is used to automatically optimize the hyperparameters of the SVM, such as the penalty parameter (C), kernel type, and kernel-specific parameters like gamma. This helps in finding the most effective model configuration without manual tuning. The approach is particularly useful for handling complex, high-dimensional, or non-linear datasets, offering improved classification accuracy through global search and optimization.
 
 I have implemented other models such as SVM, XGBoost, Random Forest Classifier, and Neural Network. I created a stimulate_ctr (Click-Through Rate) function to compare the predicted CTR with the original CTR and displayed the top 20% of the results to analyze the improvements achieved by each model.
 
@@ -109,13 +109,16 @@ The VP of Marketing raised a valid concern — sending emails randomly is ineffi
    - SVM
    - SVM (with Differential Evolution optimization)
 
-##### The results will show:
+##### The results will show the following details:
 
 **Original CTR:** The baseline CTR for the entire dataset.
 
 **Simulated CTR:** The CTR of the top 20% of predicted users.
 
 **Improvement:** The difference between the simulated and original CTR.
+
+Conclusion 
+**Through the above CTR table (present under model selection) we can clear note that SVM DE model has predicted the best result among all the other model. The improved CTR score of DE model is 50% more than the orginal CTR.
 
 ---
 
